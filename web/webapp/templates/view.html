@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        {% for data in form %}
+        <div class="col-lg-3">
+            <div class="card" style="width: 18rem;">
+                <img src="{{ data.blog_image.url }}" class="card-img-top" alt="..." height="200" width="200">
+                <div class="card-body">
+                  <p class="card-text">Id: {{data.id}}</p>
+                  <h5 class="card-title">Title: {{ data.blog_title }}</h5>
+                  <p2 class="card-text">Summary: {{ data.blog_summary }}</p2>
+                  <p class="card-text">Content: {{ data.blog_content }}</p>
+                  <p class="card-text">Created by: {{ user.username }}</p>
+                  <a href="/" class="btn btn-primary">Back</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
