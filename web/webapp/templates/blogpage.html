@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <title>Multiple user login</title>
+    </head>
+    <body>
+      <div class="content">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-md-6 contents">
+              <div class="row justify-content-center">
+                <div class="col-md-12">
+                  <div class="form-block">
+                    <div class="mb-4">
+                      <h1>Create your blog here...</h1>
+                    </div>
+                  <span class="mb-0 text-muted">
+                      {% if msg %}
+                          {{ msg | safe }}
+                      {% else %}
+                          Blog page
+                      {% endif %}
+                  </span>
+                  <form method="post" enctype="multipart/form-data">
+                      {% csrf_token %}
+                      <div class="form-field">
+                      <p1 class="field">Blog Title</p1>
+                      <input class="form-control" type="text" name="blog_title" id="blog_title" placeholder="Name..">
+                      </div><br>
+                      
+                      <div class="form-field">
+                        <p1 class="field">Blog Summary</p1>
+                        <input class="form-control" type="text" name="blog_summary" id="blog_summary" placeholder="Name..">
+                        </div><br>
+                        
+                      <div class="form-field">
+                        <p1 class="field">Blog Content</p1>
+                        <input class="form-control" type="text" name="blog_content" id="blog_content" placeholder="Name..">
+                        </div><br>
+                        <div class="form-field">
+                          <p1 class="field">Blog Image: </p1>
+                          {{ form.blog_image }}
+                        </div><br>
+                      <input type="submit" value="Post" class="btn btn-pill text-white btn-block btn-primary">                   
+                      <a href="/" class="btn btn-primary"> Back </a>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
